@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEDSKCT | ACHIEVEMENTS</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:600,400' rel='stylesheet' type='text/css'>
+<!-- custom css -->
+<link rel="stylesheet" href="{% static 'css/achievements_style.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">SEDS KCT ACHIEVEMENTS</h1>
+    </div>
+    <ul class="timeline">
+
+{% for i in content %}
+
+        <li class="timeline-{{i.myside}}">
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+                <img class="img-responsive img-fluid" src="{{ i.img_link}}" alt="image">
+              <h4 class="timeline-title">{{ i.title }}</h4>
+              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ i.date }}</small></p>
+            </div>
+            <div class="timeline-body">
+              <p>{{ i.summary }}</p>
+            </div>
+          </div>
+        </li>
+
+
+
+{% endfor %}
+
+    </ul>
+</div>
+
+</body>
+</html>
